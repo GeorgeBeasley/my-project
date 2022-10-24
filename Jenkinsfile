@@ -15,11 +15,16 @@ pipeline {
         sudo docker run -p 8000:5000 George-Build'''
       }
     }
+     stage('Push image') {
+        withDockerRegistry([ credentialsId: "georgeb0203", url: "https://hub.docker.com/u/georgeb0203" ]) {
+        dockerImage.push()
+        }
+    } 
       
     }
     post {
-		always {
-			sh 'sudo docker logout'
+	always {
+		sh 'sudo docker logout'
 		}
 	}
 }
