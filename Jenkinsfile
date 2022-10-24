@@ -12,7 +12,7 @@ pipeline {
       steps {
         sh '''sudo docker rm -f $(sudo docker ps -a -q)
         sudo docker build /home/jenkins/workspace/job-node-02 -t George-Build
-        sudo docker run -p 8000:5000 George-build'''
+        sudo docker run -p 8000:5000 George-Build'''
       }
     }
       
